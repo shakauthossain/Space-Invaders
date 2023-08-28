@@ -3,16 +3,16 @@ Python Master Class
 
 **Class 01: Install Python 3.x and PyCharm + First Python Program**
 
-Download Python 3.x from here Download Python | Python.org then installs it according to the instructions in the installation window.  
-Download PyCharm from here Download PyCharm: Python IDE for Professional Developers by JetBrains and install according to the installation instruction. Just remember to mark bin directory.
+Download Python 3.x from here Download Python | Python.org then install it according to the instructions in the installation window.  
+Download PyCharm from here Download PyCharm: Python IDE for Professional Developers by JetBrains and install according to the installation instructions. Just remember to mark the bin directory.
 After installing the Pycharm, create a new project and write the code which is given below,
 				print(“Hello World”)
 You will see the printed result of your code in the program console.
 
-**Class 02: Into to PyGame and Window Call **
+**Class 02: Into to PyGame and Window Call**
 
 PyGame: Pygame is a cross-platform set of Python modules designed for writing video games. It includes computer graphics and sound libraries designed to be used with the Python programming language. 
-Making games is made easier because of this PyGame. We can easily call window, screen, sound and many more libraries using PyGame. 
+Making games is made easier because of this PyGame. We can easily call windows, screen, sound and many more libraries using PyGame. 
 Code: 
 	import pygame
 	
@@ -26,22 +26,22 @@ Code:
 	        if event.type == pygame.QUIT:
 	            running = False
         
-**Class 03: Adding Title, Logo and Background **
+**Class 03: Adding Title, Logo and Background**
 
-Using pygame’s library, we can add the title, logo and background of our console window. Here, as we are developing a Space Invaders game our title will be “SPACE INVADERS” and we will pick a logo from google. We will write the code outside the while loop as it will be one time implemented code.
+Using pygame’s library, we can add the title, logo and background of our console window. Here, as we are developing a Space Invaders game our title will be “SPACE INVADERS” and we will pick a logo from Google. We will write the code outside the while loop as it will be one time implemented code.
 Code:
 
 	pygame.display.set_caption("Space Invaders")
 	icon = pygame.image.load('ufo.png')
 	pygame.display.set_icon(icon)
 
-After integrating the logo and title, we will add the background image. For that we have to download an image from google and draw it using blit syntax inside the loop and we need to update the window. 
+After integrating the logo and title, we will add the background image. For that, we have to download an image from Google and draw it using blit syntax inside the loop and we need to update the window. 
 Code:
 
 	background = pygame.image.load('background.jpg')
 	
 	
-After loading the image, now we are going to blit it inside the while loop.
+After loading the image, we are going to blit it inside the while loop.
 
 	screen.fill((0, 0, 0))
 	screen.blit(background, (0,0))
@@ -51,14 +51,14 @@ First, I have to define a background color using screen.fill((RGB Code)) and the
 
 **Class 04: Adding images of the Player and giving the position of the player**
 
-First, we have to download a player image then we are going to load the image and give it a position for display in the window. For that we are going to use the same library that we have used in icon and background and we are going to define the position together.
+First, we have to download a player image then we are going to load the image and give it a position for display in the window. For that, we are going to use the same library that we have used in the icon and background and we are going to define the position together.
 Code: 
 
 	player = pygame.image.load(‘plyaer.png’)
 	playerX= 370
 	playerY= 480
 
-Now, we are going to make a function for player called player.
+Now, we are going to make a function for the player called player.
 
 	def player(x, y):
     	screen.blit(playerIMG, (x,y))
@@ -68,13 +68,13 @@ And in the main loop, we have to call the player function.
 
 	player(playerX,playerY)
 
-**Class 05: Player movement mechanism, keyboard event and adding boundaries.**
+**Class 05: Player movement mechanism, keyboard event and adding boundaries**
 
-After declaring the player position, we are going to make the player move using a keyboard event. In python, event means doing some changes using any kind of actions like keyboard button press or moving the mouse. For that we have to give a moveable direction with a number of changes of quadrants. Like
+After declaring the player's position, we are going to make the player move using a keyboard event. In Python, event means doing some changes using any kind of action like a keyboard button press or moving the mouse. For that, we have to give a moveable direction with a number of changes in quadrants. Like
 	Code: 
  
 	playerX_change = 0
-Then we are going to tell python to change the direction when our button is being pressed. 
+Then we are going to tell Python to change the direction when our button is being pressed. 
 
 	if event.type == pygame.KEYDOWN:
 	    if event.key == pygame.K_LEFT:
@@ -83,7 +83,7 @@ Then we are going to tell python to change the direction when our button is bein
 	        playerX_change = 0.3
 
 
-Here the event will start when any button will be pressed using event.type == pygame.KEYDOWN and then the program will search for the pressed button identity. Then it will move the player using event.key.
+Here the event will start when any button is pressed using event.type == pygame.KEYDOWN and then the program will search for the pressed button identity. Then it will move the player using event.key.
 
 	if event.type == pygame.KEYUP:
 	    if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
@@ -101,14 +101,14 @@ Using this code, the player ship will not go out of the window. It will be insid
 
 **Class 06: Adding images of the enemy and movement (x,y)**
 
-For making it actionable, we have to add some enemies which will be the space invaders. Like player ship, we will add the enemy ship using the same method. 
+To make it actionable, we have to add some enemies which will be the space invaders. Like the player ship, we will add the enemy ship using the same method. 
 Code: 
 
 	enemyimg = pygame.image.load('enemy.png')
 	enemyX = 0
 	enemyY = 0
 	
-Then we will define the function for enemy using the same method def enemy()
+Then we will define the function for the enemy using the same method def enemy()
 
 	def enemy(x, y):
 	screen.blit(enemyimg, (x, y))
@@ -120,7 +120,7 @@ Then we will define the function for enemy using the same method def enemy()
 
 	
 For moveable mechanism, we are going to create some more lines; 
-First we are going to set 2 variables;
+First, we are going to set 2 variables;
 
 	enemyX_change = 0.3
 	enemyY_change = 40
@@ -136,7 +136,7 @@ Then we are going to use;
 
 	enemyX += enemyX_change
 
-Here if the enemy ship touches 0 of the X-axis it will change it’s direction by 0.3 to X and 40 to Y. and if it touches 736 of the X-axis, it will change its direction by -0.3 to X and 40 to Y. And it will change its X position regularly using enemyX += enemyX_change this code.
+Here if the enemy ship touches 0 of the X-axis it will change its direction by 0.3 to X and 40 to Y. and if it touches 736 of the X-axis, it will change its direction by -0.3 to X and 40 to Y. And it will change its X position regularly using enemyX += enemyX_change this code.
 
 
 
@@ -173,7 +173,7 @@ After declaring the key event, we are going to define when the bullet will be re
 	    bullet_status = "ready"
 
 
-After that we are going to declare that if the bullet status is “fire” then it will start shooting.
+After that, we are going to declare that if the bullet status is “fire” then it will start shooting.
 
 	if bullet_status == "fire":
 	    fire_bullet(bulletX, bulletY)
@@ -182,9 +182,9 @@ After that we are going to declare that if the bullet status is “fire” then 
 
 
 
-**Class 08: Collision between the bullet and the enemy **
+**Class 08: Collision between the bullet and the enemy**
 	
-We have to create a function for collision which will define that when it will mark it as a collision. And we need to calculate the distance between the bullet and the enemy ship using the MATH package. So, first, we are going to import the math package. 
+We have to create a function for collision which will define when it will mark it as a collision. And we need to calculate the distance between the bullet and the enemy ship using the MATH package. So, first, we are going to import the math package. 
 
 
 	import math
@@ -197,10 +197,10 @@ We have to create a function for collision which will define that when it will m
 	    else:
 	        return False
 	
-Here in the collision function, we have used a mathematical equation which is called the distance between 2 coordinates  we have defined that if the distance between the bullet and enemy is less than 27. It will declare it as a collision.
+Here in the collision function, we have used a mathematical equation which is called the distance between 2 coordinates  we have defined that if the distance between the bullet and the enemy is less than 27. It will declare it as a collision.
 
 
-After that we are going to define what will happen when there will be a collision. Call the function in the main loop. 
+After that, we are going to define what will happen when there is a collision. Call the function in the main loop. 
 
 
 	collision = iscollision(enemyX, enemyY, bulletX, bulletY)
@@ -212,13 +212,13 @@ After that we are going to define what will happen when there will be a collisio
 	    enemyY = 0
 
 
-here we have defined that whenever the collision will happen the enemy will respawn in their initial position and the bullet will also respawn and the bullet_status will become ready to fire.
+here we have defined that whenever the collision happens the enemy will respawn in their initial position and the bullet will also respawn and the bullet_status will become ready to fire.
 
 
 **Class 09: Multiple Enemy**
 
 
-As we have done the collision part now, we have to make multiple enemies so that we can have many enemies to shoot. For that we have to make an enemy list. In python, we use [ ] to make a list. So, in that case, I am going to make a list of all enemy variable like. 
+As we have done the collision part now, we have to make multiple enemies so that we can have many enemies to shoot. For that, we have to make an enemy list. In Python, we use [ ] to make a list. So, in that case, I am going to make a list of all enemy variable like. 
 
 
                                      
@@ -256,7 +256,7 @@ Then we are going to make the for loop;
 
 **Class 10: Score Label and Game Over**
 	
-Now it’s time for showing the score. For that we have to declare the value of the score value. And make a function so that we can call it inside the while loop. So, the code will be;
+Now it’s time to show the score. For that, we have to declare the value of the score value. And make a function so that we can call it inside the while loop. So, the code will be;
 
 
 Code:
@@ -308,4 +308,4 @@ As we have rendered the font now, we have to call the function so that whenever 
 	    break
 
 
-So, whenever the enemy Y axis touches 440, it will move all of the enemy ship to 850, as our screen window size is 800. So, 850 is out of the window. And it will call the game over function and after that the for IF loop will break-down. As we haven’t declared any action when enemy y axis is 850, so the while loop will not meet any condition and it will break out of the loop. 
+So, whenever the enemy Y axis touches 440, it will move all of the enemy ships to 850, as our screen window size is 800. So, 850 is out of the window. It will call the game over function and after that, the for IF loop will break down. As we haven’t declared any action when the enemy y-axis is 850, the while loop will not meet any condition and it will break out of the loop. 
