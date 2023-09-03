@@ -1,6 +1,9 @@
 # Space-Invaders
 Python Master Class
 
+![Course Thumbnail1](https://github.com/shakauthossain/Space-Invaders/assets/75905534/5b0cd15f-1fa0-4608-a8a9-932c93edb4ba)
+
+
 **Class 01: Install Python 3.x and PyCharm + First Python Program**
 
 Download Python 3.x from here Download Python | Python.org then install it according to the instructions in the installation window.  
